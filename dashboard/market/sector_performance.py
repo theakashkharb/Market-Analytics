@@ -157,6 +157,6 @@ def render_sector_performance(
                 "Stocks",
             ]
         ],
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
     )

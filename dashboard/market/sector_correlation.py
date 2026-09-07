@@ -128,5 +128,5 @@ def render_sector_correlation(
 
     st.plotly_chart(
         fig,
-        use_container_width=True,
+        width="stretch",
     )

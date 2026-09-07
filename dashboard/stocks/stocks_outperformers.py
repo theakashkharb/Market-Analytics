@@ -310,6 +310,6 @@ def render_stock_outperformers(
 
     st.dataframe(
         display,
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
     )

@@ -186,6 +186,15 @@ def render_top_stocks(
         }
     )
 
+    # Display only: keep the internal ticker unchanged.
+    display_data["Stock"] = display_data[
+        "Stock"
+    ].str.replace(
+        ".NS",
+        "",
+        regex=False,
+    )
+
     st.dataframe(
         display_data[
             [
@@ -198,6 +207,6 @@ def render_top_stocks(
                 "Positive Days",
             ]
         ],
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
     )
