@@ -118,18 +118,36 @@ def render_stock_correlation(
 
     col1.metric(
         "Most Correlated Pair",
-        pairs["Most Pair"],
+        pairs["Most Pair"].replace(".NS", ""),
         f"{pairs['Most Value']:.2f}",
     )
 
     col2.metric(
         "Least Correlated Pair",
-        pairs["Least Pair"],
+        pairs["Least Pair"].replace(".NS", ""),
         f"{pairs['Least Value']:.2f}",
     )
 
+    display_correlation = correlation.copy()
+
+    display_correlation.index = (
+        display_correlation.index.str.replace(
+            ".NS",
+            "",
+            regex=False,
+        )
+    )
+
+    display_correlation.columns = (
+        display_correlation.columns.str.replace(
+            ".NS",
+            "",
+            regex=False,
+        )
+    )
+
     fig = px.imshow(
-        correlation,
+        display_correlation,
         text_auto=".2f",
         aspect="auto",
         zmin=-1,
