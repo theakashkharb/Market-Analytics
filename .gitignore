@@ -7,6 +7,11 @@ __pycache__/
 data/*
 !data/raw/
 !data/raw/nifty500_universe.csv
+!data/market/
+!data/market/nifty50.parquet
+!data/market/nifty500.parquet
+!data/analytics/
+!data/analytics/stock_daily_returns.parquet
 
 database/*.duckdb
 
