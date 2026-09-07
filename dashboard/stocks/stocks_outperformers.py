@@ -10,7 +10,6 @@ from src.analytics.stocks.risk import (
     calculate_stock_sharpe,
     calculate_stock_drawdown,
 )
-from src.analytics.stocks.performance import calculate_win_rate
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -270,6 +269,13 @@ def render_stock_outperformers(
         return
 
     display = outperformers.copy()
+
+    # Remove Yahoo Finance NSE suffix only for display.
+    display["Ticker"] = display["Ticker"].str.replace(
+        ".NS",
+        "",
+        regex=False,
+    )
 
     display["Stock Return"] = (
         display["Stock Return"] * 100
